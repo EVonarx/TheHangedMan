@@ -1,0 +1,11 @@
+Avions
+Bateaux
+Telephone
+Ordinateur
+Voiture
+Trains
+Tables
+Chiens
+Pelouse
+Pommes
+Oiseaux
