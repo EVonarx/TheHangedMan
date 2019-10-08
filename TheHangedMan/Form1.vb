@@ -15,7 +15,6 @@ Public Class Form1
     Dim currentImg As String = "etape10"
 
     Dim sCharToFind As String = ""
-    'Dim cCharToFind As Char
     Dim labelBoxClicked As Label
     Dim keyAlreadyPressed As Boolean = False
 
@@ -61,13 +60,13 @@ Public Class Form1
 
         Next
 
-        'Create dynamically 26 textBoxes
-        'Each textbox contains 1 character of the alphabet
+        'Create dynamically 26 labels
+        'Each label contains 1 character of the alphabet
         For i = 0 To 25
             Dim obj As New System.Windows.Forms.Label
-            'Obj = Form1.Controls.Add("forms.textbox.1")
+
             With obj
-                .Name = "L" & i 'nom de ta textbox (Txt1, Txt2, Txt3, ..., Txt26)
+                .Name = "L" & i 'nom du label (L1, L2, L3, ..., L6)
                 .Left = (i - ((i \ 7) * 7)) * 40 + 20 'position par rapport au rebord gauche de l'UserForm
                 .Top = (i \ 7) * 40 + 20   'position par rapport au haut de l'UserForm
                 .Width = 30 'largeur de la zone d'écriture
@@ -241,7 +240,7 @@ Public Class Form1
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
-        'Code à décoder, il y a un problème avec cptrLettersFound !!! 
+        'Code à décoder, peut-être un problème avec cptrLettersFound !!! 
         Me.Hide()
 
         Dim f As New Form1
