@@ -104,7 +104,7 @@ Public Class Form1
     End Sub
 
     Private Function getChar(ByVal e As System.Windows.Forms.KeyEventArgs) As Char
-        Dim sCar As String = ""
+        Dim sCar As String = "!"
 
         If e.KeyCode = Keys.A Then sCar = "A"
         If e.KeyCode = Keys.B Then sCar = "B"
@@ -168,20 +168,25 @@ Public Class Form1
                 sCharToFind = getChar(e)
                 'sCharToFind = Char.ConvertFromUtf32(e.keyCode)
                 'sCharToFind = Chr((KeyEventArgs)e.KeyCode)
-                For Each txt1 As Label In Me.Panel1.Controls
-                    If TypeOf txt1 Is Label Then 'if it is a textbox
-                        If txt1.Text = sCharToFind Then 'if the property text of the textbox is equal to the character
-                            If txt1.Enabled = False Then
-                                keyAlreadyPressed = True
-                            Else
-                                txt1.Enabled = False
-                            End If
 
+                If (sCharToFind = "!") Then
+                    keyAlreadyPressed = True
+                End If
+
+                For Each txt1 As Label In Me.Panel1.Controls
+                        If TypeOf txt1 Is Label Then 'if it is a textbox
+                            If txt1.Text = sCharToFind Then 'if the property text of the textbox is equal to the character
+                                If txt1.Enabled = False Then
+                                    keyAlreadyPressed = True
+                                Else
+                                    txt1.Enabled = False
+                                End If
+
+                            End If
                         End If
-                    End If
-                Next
-            Else
-                labelBoxClicked = DirectCast(sender, Label) 'only for click events
+                    Next
+                Else
+                    labelBoxClicked = DirectCast(sender, Label) 'only for click events
                 labelBoxClicked.Enabled = False
                 sCharToFind = labelBoxClicked.Text
             End If
